@@ -103,7 +103,9 @@ class GridWorld:
 
 ## Introduction
 
-A **Markov Decision Process** (MDP) is a mathematical framework used for modeling decision-making in scenarios where outcomes are partially random and partially under the control of a decision-maker. It consists of a set of states, actions, and rewards, with state transitions governed by probabilities. MDPs are particularly valuable in situations where decisions need to be made sequentially over time, and they are widely used in various fields such as robotics, economics, and artificial intelligence for optimizing behavior and decision-making strategies under uncertainty.
+A **Markov Decision Process** (MDP) is a mathematical framework used for modeling decision-making in scenarios where outcomes are partially random and partially under the control of a decision-maker. It consists of a set of states, actions, and rewards, with state transitions governed by probabilities.
+
+MDPs are particularly valuable in situations where decisions need to be made sequentially over time, and they are widely used in various fields such as robotics, economics, and artificial intelligence for optimizing behavior and decision-making strategies under uncertainty.
 
 #### Example
 
@@ -123,8 +125,8 @@ _What is wrong with this argument?_
 - Because of inflation
 
 Example:
-> Being promised \$ 10,000 next year is worth only 90% as
-> much as receiving \$ 10,000 right now.
+> Being promised 10,000\$ next year is worth only 90% as
+> much as receiving 10,000\$ right now.
 
 
 Assuming payment $n$ years in future is worth only
@@ -145,11 +147,11 @@ $\gamma^2$ (reward in 2 time steps) +
 $\gamma^3$ 3 (reward in 3 time steps) +
 (infinite sum)
 
-or more in mathematical expression:
 
-$$
-\text{Discounted sum of future rewards} = r + \sum\limits_{k=1}^\infin\gamma^k
-$$
+Discounted sum of future rewards:
+> $$
+> r + \sum\limits_{k=1}^\infin\gamma^k
+> $$
 
 where $r$ is reward now
 
@@ -181,14 +183,15 @@ $P = \begin{pmatrix}
         \dots                                   \\
         P_{n1} & \dots & \dots & P_{nn}         \\
     \end{pmatrix}$ where
-$P_{ij} = \text{Prob}(\text{Next} = S_j \vert \text{This} = S_j)$
+$P_{ij} = \text{Prob}( S_i | S_j)$
 - Each state has a reward $\set{r_1, r_2 \dots r_n}$
 - There is a discount factor $\gamma$ where $\gamma \vert 0<\gamma<1$
+
 
 On each time step:
 1. Assume your state is $S_i$
 2. You get given reward $r_i$
-3. You randomly move to another state $P(\text{NextState} = S_j | \text{This} = S_i ) = P_{ij}$
+3. You randomly move to another state
 4. All future rewards are discounted by $\gamma$
 
 #### Solving a Markov System
@@ -263,9 +266,15 @@ So:
 | 5 |  |  |  |
 
 
+---
+
+
+
+
+
+
 ````{admonition} What about code  for MSE?
 :class: dropdown
-
 | k | $J^k(\text{SUN})$ | $J^k(\text{WIND})$ | $J^k(\text{HAIL})$ | 
 | ----------- | ----------- | ----------- | ----------- |
 | 1 | 4 | 0 | -8 |
@@ -273,7 +282,6 @@ So:
 | 3 | 5 | -1.25 | -10.75 |
 | 4 | 4.94 | -1.44 | -11 |
 | 5 | 4.88 | -1.52 | -11.11 |
-
 ````
 
 #### Value Iteration for solving Markov Systems
@@ -302,8 +310,9 @@ An MDP has:
 - A transition probability function
 
 $$
-P_{ij}^k = Prob(\text{Next} = j | \text{This} = i \space \text{and I use action} \space k)
+P_{ij}^k = Prob(j | i, k)
 $$
+
 
 On each step:
 1. Call current state $S_j$
@@ -363,7 +372,7 @@ This is also known as **dynamic programming**
 1. Compute $J*(S_i)$ for all $i$ using Value Iteration (a.k.a Dynamic Programming)
 2. Define the best action in state $S_i$ as:
 $$
-\arg \max_k [r_i + \gamma \sum_j P^k_{ij} J*(S_j)]
+\arg \max_k [r_i + \gamma \sum_j P^k_{ij} J(S_j)]
 $$
 
 ### Computing the Optimal Value Function with Value Iteration
@@ -457,6 +466,12 @@ grid = GridWorld(5, 5, [(1, 21, 10), (3, 13, 5)])
 values = grid.bellman_solution()
 sns.heatmap(values, cmap='RdBu', annot=True, fmt=".3f");
 ```
+
+
+    
+![svg](output_35_0.svg)
+    
+
 
 ## Action-value function
 
@@ -558,6 +573,13 @@ Compute $v_*$ of the best state $A$.
 10 / (1- 0.9**5)
 ```
 
+
+
+
+    24.419428096993972
+
+
+
 ## Value iteraion
 
 1. Initialize $v_i(s)=0$, for all $s \in \mathcal S$
@@ -587,6 +609,105 @@ for i in range(1000):
     if diff < 1e-3:
         break
 ```
+
+    diff at iteration 0: 11.180340
+    diff at iteration 1: 16.837458
+    diff at iteration 2: 15.153712
+    diff at iteration 3: 14.390083
+    diff at iteration 4: 13.201365
+    diff at iteration 5: 11.359212
+    diff at iteration 6: 10.087099
+    diff at iteration 7: 8.899113
+    diff at iteration 8: 8.128209
+    diff at iteration 9: 7.426842
+    diff at iteration 10: 6.520376
+    diff at iteration 11: 5.832493
+    diff at iteration 12: 5.165771
+    diff at iteration 13: 4.786819
+    diff at iteration 14: 4.422070
+    diff at iteration 15: 3.967694
+    diff at iteration 16: 3.580832
+    diff at iteration 17: 3.102996
+    diff at iteration 18: 2.886449
+    diff at iteration 19: 2.703556
+    diff at iteration 20: 2.447296
+    diff at iteration 21: 2.182663
+    diff at iteration 22: 1.821722
+    diff at iteration 23: 1.697455
+    diff at iteration 24: 1.627680
+    diff at iteration 25: 1.530449
+    diff at iteration 26: 1.368849
+    diff at iteration 27: 1.087588
+    diff at iteration 28: 1.036305
+    diff at iteration 29: 1.036065
+    diff at iteration 30: 1.016825
+    diff at iteration 31: 0.915050
+    diff at iteration 32: 0.679617
+    diff at iteration 33: 0.618063
+    diff at iteration 34: 0.621914
+    diff at iteration 35: 0.613145
+    diff at iteration 36: 0.551831
+    diff at iteration 37: 0.405511
+    diff at iteration 38: 0.364960
+    diff at iteration 39: 0.367234
+    diff at iteration 40: 0.362056
+    diff at iteration 41: 0.325851
+    diff at iteration 42: 0.239450
+    diff at iteration 43: 0.215505
+    diff at iteration 44: 0.216848
+    diff at iteration 45: 0.213791
+    diff at iteration 46: 0.192412
+    diff at iteration 47: 0.141393
+    diff at iteration 48: 0.127254
+    diff at iteration 49: 0.128047
+    diff at iteration 50: 0.126241
+    diff at iteration 51: 0.113617
+    diff at iteration 52: 0.083491
+    diff at iteration 53: 0.075142
+    diff at iteration 54: 0.075610
+    diff at iteration 55: 0.074544
+    diff at iteration 56: 0.067090
+    diff at iteration 57: 0.049301
+    diff at iteration 58: 0.044371
+    diff at iteration 59: 0.044647
+    diff at iteration 60: 0.044018
+    diff at iteration 61: 0.039616
+    diff at iteration 62: 0.029112
+    diff at iteration 63: 0.026200
+    diff at iteration 64: 0.026364
+    diff at iteration 65: 0.025992
+    diff at iteration 66: 0.023393
+    diff at iteration 67: 0.017190
+    diff at iteration 68: 0.015471
+    diff at iteration 69: 0.015567
+    diff at iteration 70: 0.015348
+    diff at iteration 71: 0.013813
+    diff at iteration 72: 0.010151
+    diff at iteration 73: 0.009136
+    diff at iteration 74: 0.009192
+    diff at iteration 75: 0.009063
+    diff at iteration 76: 0.008157
+    diff at iteration 77: 0.005994
+    diff at iteration 78: 0.005394
+    diff at iteration 79: 0.005428
+    diff at iteration 80: 0.005352
+    diff at iteration 81: 0.004816
+    diff at iteration 82: 0.003539
+    diff at iteration 83: 0.003185
+    diff at iteration 84: 0.003205
+    diff at iteration 85: 0.003160
+    diff at iteration 86: 0.002844
+    diff at iteration 87: 0.002090
+    diff at iteration 88: 0.001881
+    diff at iteration 89: 0.001893
+    diff at iteration 90: 0.001866
+    diff at iteration 91: 0.001679
+    diff at iteration 92: 0.001234
+    diff at iteration 93: 0.001111
+    diff at iteration 94: 0.001118
+    diff at iteration 95: 0.001102
+    diff at iteration 96: 0.000992
+    
 
 ## Applications of MDPs
 
