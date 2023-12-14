@@ -1,9 +1,4 @@
 ```python
-# !pip install seaborn
-```
-
-
-```python
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -123,14 +118,13 @@ _What is wrong with this argument?_
 
 ---
 
-"A reward (payment) in the future is not worth quite
-as much as a reward now."
+**"A reward (payment) in the future is not worth quite as much as a reward now."**
 - Because of chance of obliteration
 - Because of inflation
 
 Example:
-> Being promised $10,000 next year is worth only 90% as
-> much as receiving $10,000 right now.
+> Being promised \$ 10,000 next year is worth only 90% as
+> much as receiving \$ 10,000 right now.
 
 
 Assuming payment $n$ years in future is worth only
@@ -161,13 +155,6 @@ where $r$ is reward now
 
 ##### The Academic Life
 
-$$
-\begin{CD}
-   \text{A.Assistant Prof 20} @>0.6>> \text{B. Assoc. Prof 60} \\
-@VbVV @AAcA \\
-   C @= D
-\end{CD}
-$$
 
 ![The academic life](./academiclife.jpg "life state automat")
 
@@ -182,7 +169,7 @@ Define:
 5. $J_D$ = Expected discounted future rewards starting in state D
 
 
-#### Computing the Future Rewards of an Academic
+##### Computing the Future Rewards of an Academic
 
 A Markov system of rewards:
 
@@ -209,7 +196,7 @@ On each time step:
 Write $J*(S_i) = $ expected discounted sum of future rewards starting in state $S_i$
 
 $$
-J*(S_i) = r_i + \gamma x = r_i + \gamma(P_{i1}J*(S_1)+P_{i2}J*(S_2)+ \dots P_{in}J*(S_n)) \\
+J(S_i) = r_i + \gamma x = r_i + \gamma(P_{i1}J(S_1)+P_{i2}J(S_2)+ \dots P_{in}J(S_n)) \\
 $$
 
 
@@ -219,10 +206,10 @@ where x = Expected future rewards starting from your next state
 Using vector notation:
 $$
 J = \begin{pmatrix}
-        J*(S_1) \\
-        J*(S_2) \\
+        J(S_1) \\
+        J(S_2) \\
         \dots   \\
-        J*(S_n) \\
+        J(S_n) \\
     \end{pmatrix}
 ,\space
 R = \begin{pmatrix}
@@ -315,7 +302,7 @@ An MDP has:
 - A transition probability function
 
 $$
-P_{ij}^k = Prob(\text{Next} = j | \text{This} = i \text{and I use action} k)
+P_{ij}^k = Prob(\text{Next} = j | \text{This} = i \space \text{and I use action} \space k)
 $$
 
 On each step:
@@ -341,15 +328,15 @@ First idea that could come to mind is run through all possible policies and sele
 ![Optimal value function](./optimalvaluefunction.png "Optimal value function")
 
 
-Define $J*(S_i)$ = Expected Discounted Future Rewards, starting from state $S_i$, assuming we use the optimal policy
+Define $J(S_i)$ = Expected Discounted Future Rewards, starting from state $S_i$, assuming we use the optimal policy
 
 What (by inspection) is an optimal policy for that MDP? (assume $\gamma$ = 0.9)
 
-What is $J*(S_1)$?
+What is $J(S_1)$?
 
-What is $J*(S_2)$?
+What is $J(S_2)$?
 
-What is $J*(S_3)$?
+What is $J(S_3)$?
 
 ## Bellman's Equation
 
@@ -364,8 +351,9 @@ What is $J*(S_3)$?
 - ...
 - Compute $J^n(S_i)$ for all $i$ until converged
 
+Converged when:
 $$
-\text{converged when} [\max_i \left | J^{n+1}(S_i) - J^n(S_i) \right | < \xi ]
+[\max_i \left | J^{n+1}(S_i) - J^n(S_i) \right | < \xi ]
 $$
 
 This is also known as **dynamic programming**
@@ -470,12 +458,6 @@ values = grid.bellman_solution()
 sns.heatmap(values, cmap='RdBu', annot=True, fmt=".3f");
 ```
 
-
-    
-![svg](output_34_0.svg)
-    
-
-
 ## Action-value function
 
 Value (**expected return**) of following policy $\pi$ after committing action $a$ state $s$:
@@ -576,13 +558,6 @@ Compute $v_*$ of the best state $A$.
 10 / (1- 0.9**5)
 ```
 
-
-
-
-    24.419428096993972
-
-
-
 ## Value iteraion
 
 1. Initialize $v_i(s)=0$, for all $s \in \mathcal S$
@@ -612,105 +587,6 @@ for i in range(1000):
     if diff < 1e-3:
         break
 ```
-
-    diff at iteration 0: 11.180340
-    diff at iteration 1: 16.837458
-    diff at iteration 2: 15.153712
-    diff at iteration 3: 14.390083
-    diff at iteration 4: 13.201365
-    diff at iteration 5: 11.359212
-    diff at iteration 6: 10.087099
-    diff at iteration 7: 8.899113
-    diff at iteration 8: 8.128209
-    diff at iteration 9: 7.426842
-    diff at iteration 10: 6.520376
-    diff at iteration 11: 5.832493
-    diff at iteration 12: 5.165771
-    diff at iteration 13: 4.786819
-    diff at iteration 14: 4.422070
-    diff at iteration 15: 3.967694
-    diff at iteration 16: 3.580832
-    diff at iteration 17: 3.102996
-    diff at iteration 18: 2.886449
-    diff at iteration 19: 2.703556
-    diff at iteration 20: 2.447296
-    diff at iteration 21: 2.182663
-    diff at iteration 22: 1.821722
-    diff at iteration 23: 1.697455
-    diff at iteration 24: 1.627680
-    diff at iteration 25: 1.530449
-    diff at iteration 26: 1.368849
-    diff at iteration 27: 1.087588
-    diff at iteration 28: 1.036305
-    diff at iteration 29: 1.036065
-    diff at iteration 30: 1.016825
-    diff at iteration 31: 0.915050
-    diff at iteration 32: 0.679617
-    diff at iteration 33: 0.618063
-    diff at iteration 34: 0.621914
-    diff at iteration 35: 0.613145
-    diff at iteration 36: 0.551831
-    diff at iteration 37: 0.405511
-    diff at iteration 38: 0.364960
-    diff at iteration 39: 0.367234
-    diff at iteration 40: 0.362056
-    diff at iteration 41: 0.325851
-    diff at iteration 42: 0.239450
-    diff at iteration 43: 0.215505
-    diff at iteration 44: 0.216848
-    diff at iteration 45: 0.213791
-    diff at iteration 46: 0.192412
-    diff at iteration 47: 0.141393
-    diff at iteration 48: 0.127254
-    diff at iteration 49: 0.128047
-    diff at iteration 50: 0.126241
-    diff at iteration 51: 0.113617
-    diff at iteration 52: 0.083491
-    diff at iteration 53: 0.075142
-    diff at iteration 54: 0.075610
-    diff at iteration 55: 0.074544
-    diff at iteration 56: 0.067090
-    diff at iteration 57: 0.049301
-    diff at iteration 58: 0.044371
-    diff at iteration 59: 0.044647
-    diff at iteration 60: 0.044018
-    diff at iteration 61: 0.039616
-    diff at iteration 62: 0.029112
-    diff at iteration 63: 0.026200
-    diff at iteration 64: 0.026364
-    diff at iteration 65: 0.025992
-    diff at iteration 66: 0.023393
-    diff at iteration 67: 0.017190
-    diff at iteration 68: 0.015471
-    diff at iteration 69: 0.015567
-    diff at iteration 70: 0.015348
-    diff at iteration 71: 0.013813
-    diff at iteration 72: 0.010151
-    diff at iteration 73: 0.009136
-    diff at iteration 74: 0.009192
-    diff at iteration 75: 0.009063
-    diff at iteration 76: 0.008157
-    diff at iteration 77: 0.005994
-    diff at iteration 78: 0.005394
-    diff at iteration 79: 0.005428
-    diff at iteration 80: 0.005352
-    diff at iteration 81: 0.004816
-    diff at iteration 82: 0.003539
-    diff at iteration 83: 0.003185
-    diff at iteration 84: 0.003205
-    diff at iteration 85: 0.003160
-    diff at iteration 86: 0.002844
-    diff at iteration 87: 0.002090
-    diff at iteration 88: 0.001881
-    diff at iteration 89: 0.001893
-    diff at iteration 90: 0.001866
-    diff at iteration 91: 0.001679
-    diff at iteration 92: 0.001234
-    diff at iteration 93: 0.001111
-    diff at iteration 94: 0.001118
-    diff at iteration 95: 0.001102
-    diff at iteration 96: 0.000992
-    
 
 ## Applications of MDPs
 
