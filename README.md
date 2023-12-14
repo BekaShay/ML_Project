@@ -263,8 +263,8 @@ So:
 | 5 |  |  |  |
 
 
----
-
+````{admonition} What about code  for MSE?
+:class: dropdown
 
 | k | $J^k(\text{SUN})$ | $J^k(\text{WIND})$ | $J^k(\text{HAIL})$ | 
 | ----------- | ----------- | ----------- | ----------- |
@@ -274,7 +274,7 @@ So:
 | 4 | 4.94 | -1.44 | -11 |
 | 5 | 4.88 | -1.52 | -11.11 |
 
-
+````
 
 #### Value Iteration for solving Markov Systems
 
