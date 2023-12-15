@@ -1,7 +1,261 @@
 ```python
+%pip install datasets
+```
+
+    Defaulting to user installation because normal site-packages is not writeable
+    Collecting datasets
+      Downloading datasets-2.15.0-py3-none-any.whl.metadata (20 kB)
+    Requirement already satisfied: numpy>=1.17 in c:\programdata\anaconda3\lib\site-packages (from datasets) (1.26.2)
+    Collecting pyarrow>=8.0.0 (from datasets)
+      Downloading pyarrow-14.0.1-cp311-cp311-win_amd64.whl.metadata (3.1 kB)
+    Collecting pyarrow-hotfix (from datasets)
+      Downloading pyarrow_hotfix-0.6-py3-none-any.whl.metadata (3.6 kB)
+    Collecting dill<0.3.8,>=0.3.0 (from datasets)
+      Using cached dill-0.3.7-py3-none-any.whl.metadata (9.9 kB)
+    Requirement already satisfied: pandas in c:\programdata\anaconda3\lib\site-packages (from datasets) (2.1.4)
+    Requirement already satisfied: requests>=2.19.0 in c:\programdata\anaconda3\lib\site-packages (from datasets) (2.31.0)
+    Requirement already satisfied: tqdm>=4.62.1 in c:\programdata\anaconda3\lib\site-packages (from datasets) (4.65.0)
+    Collecting xxhash (from datasets)
+      Downloading xxhash-3.4.1-cp311-cp311-win_amd64.whl.metadata (12 kB)
+    Collecting multiprocess (from datasets)
+      Downloading multiprocess-0.70.15-py311-none-any.whl.metadata (7.2 kB)
+    Requirement already satisfied: fsspec<=2023.10.0,>=2023.1.0 in c:\programdata\anaconda3\lib\site-packages (from fsspec[http]<=2023.10.0,>=2023.1.0->datasets) (2023.10.0)
+    Requirement already satisfied: aiohttp in c:\programdata\anaconda3\lib\site-packages (from datasets) (3.9.0)
+    Collecting huggingface-hub>=0.18.0 (from datasets)
+      Using cached huggingface_hub-0.19.4-py3-none-any.whl.metadata (14 kB)
+    Requirement already satisfied: packaging in c:\users\bekas\appdata\roaming\python\python311\site-packages (from datasets) (23.2)
+    Requirement already satisfied: pyyaml>=5.1 in c:\programdata\anaconda3\lib\site-packages (from datasets) (6.0.1)
+    Requirement already satisfied: attrs>=17.3.0 in c:\users\bekas\appdata\roaming\python\python311\site-packages (from aiohttp->datasets) (23.1.0)
+    Requirement already satisfied: multidict<7.0,>=4.5 in c:\programdata\anaconda3\lib\site-packages (from aiohttp->datasets) (6.0.4)
+    Requirement already satisfied: yarl<2.0,>=1.0 in c:\programdata\anaconda3\lib\site-packages (from aiohttp->datasets) (1.9.3)
+    Requirement already satisfied: frozenlist>=1.1.1 in c:\programdata\anaconda3\lib\site-packages (from aiohttp->datasets) (1.4.0)
+    Requirement already satisfied: aiosignal>=1.1.2 in c:\programdata\anaconda3\lib\site-packages (from aiohttp->datasets) (1.2.0)
+    Requirement already satisfied: filelock in c:\programdata\anaconda3\lib\site-packages (from huggingface-hub>=0.18.0->datasets) (3.13.1)
+    Requirement already satisfied: typing-extensions>=3.7.4.3 in c:\programdata\anaconda3\lib\site-packages (from huggingface-hub>=0.18.0->datasets) (4.7.1)
+    Requirement already satisfied: charset-normalizer<4,>=2 in c:\programdata\anaconda3\lib\site-packages (from requests>=2.19.0->datasets) (2.0.4)
+    Requirement already satisfied: idna<4,>=2.5 in c:\programdata\anaconda3\lib\site-packages (from requests>=2.19.0->datasets) (3.4)
+    Requirement already satisfied: urllib3<3,>=1.21.1 in c:\programdata\anaconda3\lib\site-packages (from requests>=2.19.0->datasets) (1.26.18)
+    Requirement already satisfied: certifi>=2017.4.17 in c:\programdata\anaconda3\lib\site-packages (from requests>=2.19.0->datasets) (2023.11.17)
+    Requirement already satisfied: colorama in c:\users\bekas\appdata\roaming\python\python311\site-packages (from tqdm>=4.62.1->datasets) (0.4.6)
+    Requirement already satisfied: python-dateutil>=2.8.2 in c:\users\bekas\appdata\roaming\python\python311\site-packages (from pandas->datasets) (2.8.2)
+    Requirement already satisfied: pytz>=2020.1 in c:\programdata\anaconda3\lib\site-packages (from pandas->datasets) (2023.3.post1)
+    Requirement already satisfied: tzdata>=2022.1 in c:\programdata\anaconda3\lib\site-packages (from pandas->datasets) (2023.3)
+    Requirement already satisfied: six>=1.5 in c:\users\bekas\appdata\roaming\python\python311\site-packages (from python-dateutil>=2.8.2->pandas->datasets) (1.16.0)
+    Downloading datasets-2.15.0-py3-none-any.whl (521 kB)
+       ---------------------------------------- 0.0/521.2 kB ? eta -:--:--
+        --------------------------------------- 10.2/521.2 kB ? eta -:--:--
+       --- ----------------------------------- 41.0/521.2 kB 393.8 kB/s eta 0:00:02
+       --- ----------------------------------- 41.0/521.2 kB 393.8 kB/s eta 0:00:02
+       --- ----------------------------------- 41.0/521.2 kB 393.8 kB/s eta 0:00:02
+       ---- ---------------------------------- 61.4/521.2 kB 252.2 kB/s eta 0:00:02
+       ------ -------------------------------- 92.2/521.2 kB 327.7 kB/s eta 0:00:02
+       ---------- --------------------------- 143.4/521.2 kB 448.2 kB/s eta 0:00:01
+       ---------- --------------------------- 143.4/521.2 kB 448.2 kB/s eta 0:00:01
+       ----------- -------------------------- 153.6/521.2 kB 353.1 kB/s eta 0:00:02
+       -------------- ----------------------- 204.8/521.2 kB 444.2 kB/s eta 0:00:01
+       ------------------ ------------------- 256.0/521.2 kB 506.7 kB/s eta 0:00:01
+       -------------------------- ----------- 358.4/521.2 kB 655.7 kB/s eta 0:00:01
+       -------------------------- ----------- 368.6/521.2 kB 603.4 kB/s eta 0:00:01
+       -------------------------------- ----- 450.6/521.2 kB 686.9 kB/s eta 0:00:01
+       -------------------------------------  512.0/521.2 kB 729.3 kB/s eta 0:00:01
+       -------------------------------------- 521.2/521.2 kB 742.7 kB/s eta 0:00:00
+    Using cached dill-0.3.7-py3-none-any.whl (115 kB)
+    Using cached huggingface_hub-0.19.4-py3-none-any.whl (311 kB)
+    Downloading pyarrow-14.0.1-cp311-cp311-win_amd64.whl (24.6 MB)
+       ---------------------------------------- 0.0/24.6 MB ? eta -:--:--
+       ---------------------------------------- 0.3/24.6 MB 5.2 MB/s eta 0:00:05
+        --------------------------------------- 0.5/24.6 MB 6.3 MB/s eta 0:00:04
+        --------------------------------------- 0.5/24.6 MB 6.3 MB/s eta 0:00:04
+        --------------------------------------- 0.5/24.6 MB 6.3 MB/s eta 0:00:04
+        --------------------------------------- 0.6/24.6 MB 2.6 MB/s eta 0:00:10
+       - -------------------------------------- 0.9/24.6 MB 3.3 MB/s eta 0:00:08
+       - -------------------------------------- 1.0/24.6 MB 3.3 MB/s eta 0:00:08
+       -- ------------------------------------- 1.3/24.6 MB 3.8 MB/s eta 0:00:07
+       -- ------------------------------------- 1.3/24.6 MB 3.8 MB/s eta 0:00:07
+       -- ------------------------------------- 1.3/24.6 MB 3.8 MB/s eta 0:00:07
+       -- ------------------------------------- 1.3/24.6 MB 3.8 MB/s eta 0:00:07
+       -- ------------------------------------- 1.3/24.6 MB 3.8 MB/s eta 0:00:07
+       --- ------------------------------------ 2.4/24.6 MB 4.0 MB/s eta 0:00:06
+       --- ------------------------------------ 2.4/24.6 MB 3.8 MB/s eta 0:00:06
+       ---- ----------------------------------- 2.7/24.6 MB 4.0 MB/s eta 0:00:06
+       ---- ----------------------------------- 2.9/24.6 MB 3.9 MB/s eta 0:00:06
+       ----- ---------------------------------- 3.2/24.6 MB 4.1 MB/s eta 0:00:06
+       ----- ---------------------------------- 3.6/24.6 MB 4.3 MB/s eta 0:00:05
+       ------ --------------------------------- 3.9/24.6 MB 4.5 MB/s eta 0:00:05
+       ------ --------------------------------- 4.1/24.6 MB 4.5 MB/s eta 0:00:05
+       ------- -------------------------------- 4.3/24.6 MB 4.4 MB/s eta 0:00:05
+       ------- -------------------------------- 4.8/24.6 MB 4.7 MB/s eta 0:00:05
+       -------- ------------------------------- 4.9/24.6 MB 4.7 MB/s eta 0:00:05
+       -------- ------------------------------- 5.2/24.6 MB 4.7 MB/s eta 0:00:05
+       -------- ------------------------------- 5.2/24.6 MB 4.7 MB/s eta 0:00:05
+       -------- ------------------------------- 5.2/24.6 MB 4.7 MB/s eta 0:00:05
+       -------- ------------------------------- 5.2/24.6 MB 4.7 MB/s eta 0:00:05
+       -------- ------------------------------- 5.2/24.6 MB 4.7 MB/s eta 0:00:05
+       ---------- ----------------------------- 6.5/24.6 MB 4.8 MB/s eta 0:00:04
+       ---------- ----------------------------- 6.6/24.6 MB 4.8 MB/s eta 0:00:04
+       ---------- ----------------------------- 6.7/24.6 MB 4.7 MB/s eta 0:00:04
+       ----------- ---------------------------- 7.1/24.6 MB 4.8 MB/s eta 0:00:04
+       ----------- ---------------------------- 7.3/24.6 MB 4.8 MB/s eta 0:00:04
+       ------------ --------------------------- 7.5/24.6 MB 4.8 MB/s eta 0:00:04
+       ------------ --------------------------- 7.6/24.6 MB 4.7 MB/s eta 0:00:04
+       ------------ --------------------------- 7.8/24.6 MB 4.7 MB/s eta 0:00:04
+       ------------- -------------------------- 8.0/24.6 MB 4.7 MB/s eta 0:00:04
+       ------------- -------------------------- 8.3/24.6 MB 4.7 MB/s eta 0:00:04
+       ------------- -------------------------- 8.6/24.6 MB 4.7 MB/s eta 0:00:04
+       -------------- ------------------------- 8.8/24.6 MB 4.7 MB/s eta 0:00:04
+       -------------- ------------------------- 9.0/24.6 MB 4.7 MB/s eta 0:00:04
+       -------------- ------------------------- 9.2/24.6 MB 4.7 MB/s eta 0:00:04
+       --------------- ------------------------ 9.5/24.6 MB 4.7 MB/s eta 0:00:04
+       --------------- ------------------------ 9.7/24.6 MB 4.7 MB/s eta 0:00:04
+       ---------------- ----------------------- 10.0/24.6 MB 4.8 MB/s eta 0:00:04
+       ---------------- ----------------------- 10.1/24.6 MB 4.7 MB/s eta 0:00:04
+       ---------------- ----------------------- 10.3/24.6 MB 4.8 MB/s eta 0:00:03
+       ---------------- ----------------------- 10.4/24.6 MB 4.6 MB/s eta 0:00:04
+       ----------------- ---------------------- 10.7/24.6 MB 4.6 MB/s eta 0:00:03
+       ----------------- ---------------------- 11.0/24.6 MB 4.9 MB/s eta 0:00:03
+       ------------------ --------------------- 11.3/24.6 MB 5.0 MB/s eta 0:00:03
+       ------------------ --------------------- 11.4/24.6 MB 4.9 MB/s eta 0:00:03
+       ------------------ --------------------- 11.6/24.6 MB 5.4 MB/s eta 0:00:03
+       ------------------- -------------------- 11.8/24.6 MB 5.4 MB/s eta 0:00:03
+       ------------------- -------------------- 11.8/24.6 MB 5.2 MB/s eta 0:00:03
+       ------------------- -------------------- 12.1/24.6 MB 5.1 MB/s eta 0:00:03
+       -------------------- ------------------- 12.4/24.6 MB 5.0 MB/s eta 0:00:03
+       -------------------- ------------------- 12.7/24.6 MB 5.0 MB/s eta 0:00:03
+       -------------------- ------------------- 12.9/24.6 MB 4.9 MB/s eta 0:00:03
+       --------------------- ------------------ 13.1/24.6 MB 5.0 MB/s eta 0:00:03
+       --------------------- ------------------ 13.4/24.6 MB 5.0 MB/s eta 0:00:03
+       ---------------------- ----------------- 13.6/24.6 MB 4.9 MB/s eta 0:00:03
+       ---------------------- ----------------- 13.9/24.6 MB 4.9 MB/s eta 0:00:03
+       ---------------------- ----------------- 14.1/24.6 MB 4.8 MB/s eta 0:00:03
+       ----------------------- ---------------- 14.3/24.6 MB 4.9 MB/s eta 0:00:03
+       ----------------------- ---------------- 14.6/24.6 MB 4.9 MB/s eta 0:00:03
+       ------------------------ --------------- 14.8/24.6 MB 4.8 MB/s eta 0:00:03
+       ------------------------ --------------- 15.1/24.6 MB 4.8 MB/s eta 0:00:02
+       ------------------------ --------------- 15.3/24.6 MB 4.8 MB/s eta 0:00:02
+       ------------------------- -------------- 15.5/24.6 MB 5.2 MB/s eta 0:00:02
+       ------------------------- -------------- 15.8/24.6 MB 5.1 MB/s eta 0:00:02
+       -------------------------- ------------- 16.1/24.6 MB 5.0 MB/s eta 0:00:02
+       -------------------------- ------------- 16.4/24.6 MB 4.9 MB/s eta 0:00:02
+       -------------------------- ------------- 16.6/24.6 MB 4.8 MB/s eta 0:00:02
+       --------------------------- ------------ 16.7/24.6 MB 4.7 MB/s eta 0:00:02
+       --------------------------- ------------ 17.0/24.6 MB 4.8 MB/s eta 0:00:02
+       ---------------------------- ----------- 17.2/24.6 MB 4.8 MB/s eta 0:00:02
+       ---------------------------- ----------- 17.5/24.6 MB 4.8 MB/s eta 0:00:02
+       ---------------------------- ----------- 17.8/24.6 MB 4.9 MB/s eta 0:00:02
+       ----------------------------- ---------- 18.0/24.6 MB 4.9 MB/s eta 0:00:02
+       ----------------------------- ---------- 18.3/24.6 MB 5.0 MB/s eta 0:00:02
+       ------------------------------ --------- 18.5/24.6 MB 4.9 MB/s eta 0:00:02
+       ------------------------------ --------- 18.6/24.6 MB 4.9 MB/s eta 0:00:02
+       ------------------------------ --------- 18.8/24.6 MB 4.9 MB/s eta 0:00:02
+       ------------------------------- -------- 19.1/24.6 MB 4.9 MB/s eta 0:00:02
+       ------------------------------- -------- 19.5/24.6 MB 5.0 MB/s eta 0:00:02
+       ------------------------------- -------- 19.6/24.6 MB 5.0 MB/s eta 0:00:01
+       -------------------------------- ------- 19.8/24.6 MB 4.9 MB/s eta 0:00:01
+       -------------------------------- ------- 20.0/24.6 MB 4.9 MB/s eta 0:00:01
+       -------------------------------- ------- 20.2/24.6 MB 4.9 MB/s eta 0:00:01
+       --------------------------------- ------ 20.4/24.6 MB 4.9 MB/s eta 0:00:01
+       --------------------------------- ------ 20.4/24.6 MB 4.9 MB/s eta 0:00:01
+       --------------------------------- ------ 20.4/24.6 MB 4.9 MB/s eta 0:00:01
+       --------------------------------- ------ 20.4/24.6 MB 4.9 MB/s eta 0:00:01
+       --------------------------------- ------ 20.4/24.6 MB 4.9 MB/s eta 0:00:01
+       --------------------------------- ------ 20.4/24.6 MB 4.9 MB/s eta 0:00:01
+       --------------------------------- ------ 20.4/24.6 MB 4.9 MB/s eta 0:00:01
+       --------------------------------- ------ 20.4/24.6 MB 4.9 MB/s eta 0:00:01
+       --------------------------------- ------ 20.4/24.6 MB 4.9 MB/s eta 0:00:01
+       --------------------------------- ------ 20.5/24.6 MB 4.1 MB/s eta 0:00:01
+       --------------------------------- ------ 20.7/24.6 MB 4.2 MB/s eta 0:00:01
+       --------------------------------- ------ 20.7/24.6 MB 4.2 MB/s eta 0:00:01
+       --------------------------------- ------ 20.7/24.6 MB 4.2 MB/s eta 0:00:01
+       --------------------------------- ------ 20.7/24.6 MB 4.2 MB/s eta 0:00:01
+       --------------------------------- ------ 20.7/24.6 MB 4.2 MB/s eta 0:00:01
+       --------------------------------- ------ 20.7/24.6 MB 4.2 MB/s eta 0:00:01
+       --------------------------------- ------ 20.7/24.6 MB 4.2 MB/s eta 0:00:01
+       --------------------------------- ------ 20.7/24.6 MB 4.2 MB/s eta 0:00:01
+       --------------------------------- ------ 20.8/24.6 MB 3.6 MB/s eta 0:00:02
+       --------------------------------- ------ 20.8/24.6 MB 3.6 MB/s eta 0:00:02
+       --------------------------------- ------ 20.8/24.6 MB 3.6 MB/s eta 0:00:02
+       ---------------------------------- ----- 21.0/24.6 MB 3.5 MB/s eta 0:00:02
+       ---------------------------------- ----- 21.1/24.6 MB 3.5 MB/s eta 0:00:01
+       ---------------------------------- ----- 21.1/24.6 MB 3.4 MB/s eta 0:00:02
+       ---------------------------------- ----- 21.1/24.6 MB 3.4 MB/s eta 0:00:02
+       ---------------------------------- ----- 21.1/24.6 MB 3.4 MB/s eta 0:00:02
+       ---------------------------------- ----- 21.2/24.6 MB 3.3 MB/s eta 0:00:02
+       ---------------------------------- ----- 21.2/24.6 MB 3.3 MB/s eta 0:00:02
+       ---------------------------------- ----- 21.2/24.6 MB 3.3 MB/s eta 0:00:02
+       ---------------------------------- ----- 21.2/24.6 MB 3.1 MB/s eta 0:00:02
+       ---------------------------------- ----- 21.5/24.6 MB 3.1 MB/s eta 0:00:01
+       ---------------------------------- ----- 21.5/24.6 MB 3.1 MB/s eta 0:00:01
+       ---------------------------------- ----- 21.5/24.6 MB 3.1 MB/s eta 0:00:01
+       ---------------------------------- ----- 21.5/24.6 MB 3.1 MB/s eta 0:00:01
+       ---------------------------------- ----- 21.5/24.6 MB 3.1 MB/s eta 0:00:01
+       ---------------------------------- ----- 21.5/24.6 MB 3.1 MB/s eta 0:00:01
+       ----------------------------------- ---- 22.1/24.6 MB 3.1 MB/s eta 0:00:01
+       ------------------------------------ --- 22.2/24.6 MB 3.0 MB/s eta 0:00:01
+       ------------------------------------ --- 22.2/24.6 MB 3.0 MB/s eta 0:00:01
+       ------------------------------------ --- 22.2/24.6 MB 3.0 MB/s eta 0:00:01
+       ------------------------------------ --- 22.2/24.6 MB 2.9 MB/s eta 0:00:01
+       ------------------------------------ --- 22.6/24.6 MB 2.9 MB/s eta 0:00:01
+       ------------------------------------ --- 22.6/24.6 MB 2.9 MB/s eta 0:00:01
+       ------------------------------------- -- 22.8/24.6 MB 2.9 MB/s eta 0:00:01
+       ------------------------------------- -- 23.0/24.6 MB 2.9 MB/s eta 0:00:01
+       ------------------------------------- -- 23.0/24.6 MB 2.9 MB/s eta 0:00:01
+       ------------------------------------- -- 23.0/24.6 MB 2.9 MB/s eta 0:00:01
+       ------------------------------------- -- 23.0/24.6 MB 2.9 MB/s eta 0:00:01
+       ------------------------------------- -- 23.1/24.6 MB 2.7 MB/s eta 0:00:01
+       ------------------------------------- -- 23.2/24.6 MB 2.7 MB/s eta 0:00:01
+       ------------------------------------- -- 23.3/24.6 MB 2.7 MB/s eta 0:00:01
+       -------------------------------------- - 23.6/24.6 MB 2.7 MB/s eta 0:00:01
+       -------------------------------------- - 23.9/24.6 MB 2.7 MB/s eta 0:00:01
+       -------------------------------------- - 23.9/24.6 MB 2.7 MB/s eta 0:00:01
+       ---------------------------------------  24.0/24.6 MB 2.7 MB/s eta 0:00:01
+       ---------------------------------------  24.1/24.6 MB 2.6 MB/s eta 0:00:01
+       ---------------------------------------  24.1/24.6 MB 2.6 MB/s eta 0:00:01
+       ---------------------------------------  24.3/24.6 MB 2.6 MB/s eta 0:00:01
+       ---------------------------------------  24.6/24.6 MB 2.6 MB/s eta 0:00:01
+       ---------------------------------------- 24.6/24.6 MB 2.6 MB/s eta 0:00:00
+    Downloading multiprocess-0.70.15-py311-none-any.whl (135 kB)
+       ---------------------------------------- 0.0/135.4 kB ? eta -:--:--
+       ---------------------------------------- 135.4/135.4 kB 3.9 MB/s eta 0:00:00
+    Downloading pyarrow_hotfix-0.6-py3-none-any.whl (7.9 kB)
+    Downloading xxhash-3.4.1-cp311-cp311-win_amd64.whl (29 kB)
+    Installing collected packages: xxhash, pyarrow-hotfix, pyarrow, dill, multiprocess, huggingface-hub, datasets
+    Successfully installed datasets-2.15.0 dill-0.3.7 huggingface-hub-0.19.4 multiprocess-0.70.15 pyarrow-14.0.1 pyarrow-hotfix-0.6 xxhash-3.4.1
+    Note: you may need to restart the kernel to use updated packages.
+    
+
+      WARNING: The script huggingface-cli.exe is installed in 'C:\Users\bekas\AppData\Roaming\Python\Python311\Scripts' which is not on PATH.
+      Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+      WARNING: The script datasets-cli.exe is installed in 'C:\Users\bekas\AppData\Roaming\Python\Python311\Scripts' which is not on PATH.
+      Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+    ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+    pyfunctional 1.4.3 requires tabulate<=1.0.0, which is not installed.
+    
+
+
+```python
+import plotly.graph_objects as go
+from datasets import load_dataset
+import pandas as pd
+import os
+import re
+import string
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+import random
+from datasets import load_dataset
+from jupyterquiz import display_quiz
+
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import scipy.linalg
+
+import nltk
+nltk.download('punkt')
+
+import json
+with open("./quiz.json", "r") as file:
+    questions=json.load(file)
 
 
 %config InlineBackend.figure_format = 'svg'
@@ -99,6 +353,26 @@ class GridWorld:
         return diff
 ```
 
+    C:\ProgramData\anaconda3\Lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+      from .autonotebook import tqdm as notebook_tqdm
+    
+
+
+    ---------------------------------------------------------------------------
+
+    ModuleNotFoundError                       Traceback (most recent call last)
+
+    Cell In[2], line 7
+          5 import re
+          6 import string
+    ----> 7 from nltk.tokenize import word_tokenize
+          8 from nltk.corpus import stopwords
+          9 import random
+    
+
+    ModuleNotFoundError: No module named 'nltk'
+
+
 # Markov decision process (MDP)
 
 ## Introduction
@@ -155,6 +429,11 @@ Discounted sum of future rewards:
 
 where $r$ is reward now
 
+
+```python
+display_quiz(questions[0])
+```
+
 ##### The Academic Life
 
 
@@ -196,17 +475,16 @@ On each time step:
 
 #### Solving a Markov System
 
-Write $J*(S_i) = $ expected discounted sum of future rewards starting in state $S_i$
+Write $J(S_i)$ as expected discounted sum of future rewards starting in state $S_i$
 
 $$
 J(S_i) = r_i + \gamma x = r_i + \gamma(P_{i1}J(S_1)+P_{i2}J(S_2)+ \dots P_{in}J(S_n)) \\
 $$
 
 
-where x = Expected future rewards starting from your next state
+where $x$ is expected future rewards starting from your next state
 
 
-Using vector notation:
 $$
 J = \begin{pmatrix}
         J(S_1) \\
@@ -215,7 +493,7 @@ J = \begin{pmatrix}
         J(S_n) \\
     \end{pmatrix}
 ,\space
-R = \begin{pmatrix}
+\mathcal R = \begin{pmatrix}
         r_1     \\
         r_2     \\
         \dots   \\
@@ -230,12 +508,6 @@ P = \begin{pmatrix}
     \end{pmatrix}
 $$
 
-
-Upside:
-- You get an exact answer
-
-Downside:
-- If you have 100,000 states you’re solving a 100,000 by 100,000 system of equations.
 
 
 ##### Value Iteration: another way to solve a Markov System
@@ -253,9 +525,20 @@ So:
 > J^{k+1}(S_i) = r_i + \gamma \sum\limits_{j=1}^{n}p_{ij}J^k(S_J)
 > $$
 
+
+```python
+display_quiz(questions[1])
+```
+
 #### Let's do a value iteration
 
 ![Value Iteration](./valueit.jpg "Value Iteration")
+
+
+````{admonition} Question
+:class: important
+
+Let's fill this table
 
 | k | $J^k(\text{SUN})$ | $J^k(\text{WIND})$ | $J^k(\text{HAIL})$ | 
 | ----------- | ----------- | ----------- | ----------- |
@@ -265,16 +548,9 @@ So:
 | 4 |  |  |  |
 | 5 |  |  |  |
 
+```{admonition} Answer
+:class: dropdown, tip
 
----
-
-
-
-
-
-
-````{admonition} What about code  for MSE?
-:class: dropdown
 | k | $J^k(\text{SUN})$ | $J^k(\text{WIND})$ | $J^k(\text{HAIL})$ | 
 | ----------- | ----------- | ----------- | ----------- |
 | 1 | 4 | 0 | -8 |
@@ -282,7 +558,11 @@ So:
 | 3 | 5 | -1.25 | -10.75 |
 | 4 | 4.94 | -1.44 | -11 |
 | 5 | 4.88 | -1.52 | -11.11 |
+
+```
 ````
+
+
 
 #### Value Iteration for solving Markov Systems
 
@@ -303,6 +583,8 @@ This is faster than matrix inversion ($N^3$ style)
 
 ## Markov Decision Process (MDP)
 
+[Here](mdpvis.github.io) is high level visualisation of the process with plots.
+
 An MDP has:
 - A set of states $\set{s_1 \dots S_n}$
 - A set of actions $\set{a_1 \dots a_m}$
@@ -321,15 +603,13 @@ On each step:
 4. If you choose action $a_k$ you will move to state $S_j$ with probability $P_{ij}^{k}$
 5. All future rewards are discounted by $\gamma$
 
-> **Interesting Fact**
->
-> For every M.D.P. there exists an optimal
-> policy.
->
-> It’s a policy such that for every possible start
-> state there is no better option than to follow
-> the policy.
->
+```{note}
+For every M.D.P. there exists an optimal policy.
+
+It’s a policy such that for every possible start
+state there is no better option than to follow
+the policy.
+```
 
 #### Computing the Optimal Policy
 First idea that could come to mind is run through all possible policies and select the best. **But there is a problem.**
@@ -369,14 +649,14 @@ This is also known as **dynamic programming**
 
 ### Finding the optimal policy
 
-1. Compute $J*(S_i)$ for all $i$ using Value Iteration (a.k.a Dynamic Programming)
+1. Compute $J(S_i)$ for all $i$ using Value Iteration (a.k.a Dynamic Programming)
 2. Define the best action in state $S_i$ as:
 $$
 \arg \max_k [r_i + \gamma \sum_j P^k_{ij} J(S_j)]
 $$
 
 ### Computing the Optimal Value Function with Value Iteration
-Define $J^k(S_i)$ = Maximum possible expected sum of discounted rewards I can get if I start at state $S_i$ and I live for $k$ time steps.
+Define $J^k(S_i)$ as maximum possible expected sum of discounted rewards I can get if I start at state $S_i$ and I live for $k$ time steps.
 
 Note that $J^1(S_i) = r_i$
 
@@ -418,10 +698,6 @@ $$
 ```
 ````
 
-> How to obtain MDP-2 from MDP-1?
->
->> Answer
->> $$\mathcal R(s, a) = \mathbb E[R \vert s, a] = \sum\limits_{r, s'} rp(r, s' | s, a), \quad p(s' | s, a) = \sum\limits_{r} p(r, s' | s, a)
 
 ### Value function
 
@@ -467,12 +743,6 @@ values = grid.bellman_solution()
 sns.heatmap(values, cmap='RdBu', annot=True, fmt=".3f");
 ```
 
-
-    
-![svg](output_35_0.svg)
-    
-
-
 ## Action-value function
 
 Value (**expected return**) of following policy $\pi$ after committing action $a$ state $s$:
@@ -495,11 +765,6 @@ $$
 ```
 ````
 
-> How to write $v_\pi(s)$ in terms of $q_\pi(s, a)$?
-> 
-> $$
-> v_\pi(s) = \sum\limits_a \pi(a\vert s) q_\pi(s, a)
-> $$
 
 **Bellman expectation equality** for $q_\pi(s, a)$
 
@@ -566,19 +831,10 @@ $$
 Compute $v_*$ of the best state $A$.
 ```
 
-> Compute $v_*$ of the best state $A$.
-
 
 ```python
 10 / (1- 0.9**5)
 ```
-
-
-
-
-    24.419428096993972
-
-
 
 ## Value iteraion
 
@@ -610,129 +866,17 @@ for i in range(1000):
         break
 ```
 
-    diff at iteration 0: 11.180340
-    diff at iteration 1: 16.837458
-    diff at iteration 2: 15.153712
-    diff at iteration 3: 14.390083
-    diff at iteration 4: 13.201365
-    diff at iteration 5: 11.359212
-    diff at iteration 6: 10.087099
-    diff at iteration 7: 8.899113
-    diff at iteration 8: 8.128209
-    diff at iteration 9: 7.426842
-    diff at iteration 10: 6.520376
-    diff at iteration 11: 5.832493
-    diff at iteration 12: 5.165771
-    diff at iteration 13: 4.786819
-    diff at iteration 14: 4.422070
-    diff at iteration 15: 3.967694
-    diff at iteration 16: 3.580832
-    diff at iteration 17: 3.102996
-    diff at iteration 18: 2.886449
-    diff at iteration 19: 2.703556
-    diff at iteration 20: 2.447296
-    diff at iteration 21: 2.182663
-    diff at iteration 22: 1.821722
-    diff at iteration 23: 1.697455
-    diff at iteration 24: 1.627680
-    diff at iteration 25: 1.530449
-    diff at iteration 26: 1.368849
-    diff at iteration 27: 1.087588
-    diff at iteration 28: 1.036305
-    diff at iteration 29: 1.036065
-    diff at iteration 30: 1.016825
-    diff at iteration 31: 0.915050
-    diff at iteration 32: 0.679617
-    diff at iteration 33: 0.618063
-    diff at iteration 34: 0.621914
-    diff at iteration 35: 0.613145
-    diff at iteration 36: 0.551831
-    diff at iteration 37: 0.405511
-    diff at iteration 38: 0.364960
-    diff at iteration 39: 0.367234
-    diff at iteration 40: 0.362056
-    diff at iteration 41: 0.325851
-    diff at iteration 42: 0.239450
-    diff at iteration 43: 0.215505
-    diff at iteration 44: 0.216848
-    diff at iteration 45: 0.213791
-    diff at iteration 46: 0.192412
-    diff at iteration 47: 0.141393
-    diff at iteration 48: 0.127254
-    diff at iteration 49: 0.128047
-    diff at iteration 50: 0.126241
-    diff at iteration 51: 0.113617
-    diff at iteration 52: 0.083491
-    diff at iteration 53: 0.075142
-    diff at iteration 54: 0.075610
-    diff at iteration 55: 0.074544
-    diff at iteration 56: 0.067090
-    diff at iteration 57: 0.049301
-    diff at iteration 58: 0.044371
-    diff at iteration 59: 0.044647
-    diff at iteration 60: 0.044018
-    diff at iteration 61: 0.039616
-    diff at iteration 62: 0.029112
-    diff at iteration 63: 0.026200
-    diff at iteration 64: 0.026364
-    diff at iteration 65: 0.025992
-    diff at iteration 66: 0.023393
-    diff at iteration 67: 0.017190
-    diff at iteration 68: 0.015471
-    diff at iteration 69: 0.015567
-    diff at iteration 70: 0.015348
-    diff at iteration 71: 0.013813
-    diff at iteration 72: 0.010151
-    diff at iteration 73: 0.009136
-    diff at iteration 74: 0.009192
-    diff at iteration 75: 0.009063
-    diff at iteration 76: 0.008157
-    diff at iteration 77: 0.005994
-    diff at iteration 78: 0.005394
-    diff at iteration 79: 0.005428
-    diff at iteration 80: 0.005352
-    diff at iteration 81: 0.004816
-    diff at iteration 82: 0.003539
-    diff at iteration 83: 0.003185
-    diff at iteration 84: 0.003205
-    diff at iteration 85: 0.003160
-    diff at iteration 86: 0.002844
-    diff at iteration 87: 0.002090
-    diff at iteration 88: 0.001881
-    diff at iteration 89: 0.001893
-    diff at iteration 90: 0.001866
-    diff at iteration 91: 0.001679
-    diff at iteration 92: 0.001234
-    diff at iteration 93: 0.001111
-    diff at iteration 94: 0.001118
-    diff at iteration 95: 0.001102
-    diff at iteration 96: 0.000992
-    
-
-## Applications of MDPs
-
-This extends the search algorithms to the case of probabilistic next states.
-_Many_ important problems are MDPs...
-
-- Robot path planning
-- Travel route planning
-- Elevator scheduling
-- Bank customer retention
-- Autonomous aircraft navigation
-- Manufacturing processes
-- Network switching & routing
-
 #### Policy Iteration (another way to compute optimal policies)
 
-Write $\pi(S_i) =$ action selected in the $i$’th state. Then $\pi$ is a policy.
+Write $\pi(S_i)$ as action selected in the $i$’th state. Then $\pi$ is a policy.
 
 Write $\pi^t = t$’th policy on t’th iteration
 
 
 Algorithm:
-$\pi^{\circ} =$ any randomly chosen policy
+$\pi^{\circ}$ is any randomly chosen policy
 
-compute $J^{\circ}(S_i) =$ long term reward starting at $S_i$ using $\pi^{\circ}$
+compute $J^{\circ}(S_i)$ as long term reward starting at $S_i$ using $\pi^{\circ}$
 
 $\pi_1(S_i) = \arg \max\limits_a [r_i + \gamma \sum_j P^a_{ij} J^{\circ}(S_j)]$
 
@@ -742,15 +886,369 @@ $\pi_2(S_i) = \dots$
 
 Keep computing $\pi^1 \pi^2 \pi^3 \dots$ until $\pi^k = \pi^{k+1}$. Then one will have an optimal policy.
 
-#### Policy Iteration & Value Iteration: Which is best?
+## Markov Chain
+
+Markov chains is a model that depicts a sequence of possible events where probabilities for the next state are based solely on its previous event state, not the states before.
+
+In simple words, the probability that $n+1$ steps will be $x$ depends only on the nth steps not the complete sequence of steps that came before $n$.
+
+This property is known as Memorylessness.
+
+| -      | A | E |
+| ----------- | ----------- | ----------- |
+| A      | 0.6       | 0.4       |
+| E   | 0.7        | 0.3        |
+
+So it is possible to represent Markov Chain with the help of an adjacency matrix.
+
+- If the Markov chain has N possible states, the matrix will be an NxN matrix.
+- Each row of this matrix should sum to 1.
+- a Markov chain also has an Initial State Vector of order Nx1.
 
 
-It depends.
-- Lots of actions? Choose _Policy Iteration_
-- Already got a fair policy? _Policy Iteration_
-- Few actions, acyclic? _Value Iteration_
+```python
+# Encoding this states to numbers as it
+# is easier to deal with numbers instead 
+# of words.
+state = ["A", "E"]
+ 
+# Assigning the transition matrix to a variable
+# i.e a numpy 2d matrix.
+MyMatrix = np.array([[0.6, 0.4], [0.7, 0.3]])
+ 
+# Simulating a random walk on our Markov chain 
+# with 20 steps. Random walk simply means that
+# we start with an arbitrary state and then we
+# move along our markov chain.
+n = 20
+ 
+# decide which state to start with
+StartingState = 0
+CurrentState = StartingState
+ 
+# printing the stating state using state
+# dictionary
+print(state[CurrentState], "--->", end=" ")
+ 
+while n-1:
+    # Deciding the next state using a random.choice()
+    # function,that takes list of states and the probability
+    # to go to the next states from our current state
+    CurrentState = np.random.choice([0, 1], p=MyMatrix[CurrentState])
+     
+    # printing the path of random walk
+    print(state[CurrentState], "--->", end=" ")
+    n -= 1
+print("stop")
+ 
+# Let us find the stationary distribution of our 
+# Markov chain by Finding Left Eigen Vectors
+# We only need the left eigen vectors
+MyValues, left = scipy.linalg.eig(MyMatrix, right=False, left=True)
+ 
+print("left eigen vectors = \n", left, "\n")
+print("eigen values = \n", MyValues)
+ 
+# Pi is a probability distribution so the sum of 
+# the probabilities should be 1 To get that from 
+# the above negative values we just have to normalize
+pi = left[:, 0]
+pi_normalized = [(x/np.sum(pi)).real for x in pi]
+pi_normalized
+```
 
-And the best of both worlds:
-> Modified Policy Iteration [Puterman]
-> 
-> A simple mix of value iteration and policy iteration
+
+```python
+display_quiz(questions[2])
+```
+
+### Markov chains in NLP
+
+Markov chain is a mathematical model that is utilized to simulate random processes occurring over a duration of time. It consists of a set of states and the transitions between them. These transitions are probabilistic.
+
+- **Transition matrix**: This is a square matrix that describes the probability of moving from one state to another. If there are n states in the Markov chain, the transition matrix will be an n x n matrix, where each element (i,j) of the matrix represents the probability of moving from state i to state j. The sum of each row of the transition matrix must be 1, as the probabilities of moving to each state from the current state must add up to 1.
+- **Chapman-Kolmogorov equation**: These equations state that the probability of moving from one state to another over a sequence of steps is the product of the transition probabilities for each step. This means that we can compute the probability of a particular sequence of transitions by multiplying together the probabilities of each individual transition.
+
+#### Markov Chains in Natural Language Processing (NLP)
+They have been widely used in Natural Language Processing (NLP) applications, such as text generation, speech recognition, and sentiment analysis.
+
+#### Markov chain algorithm for generating sentences
+
+We start by analyzing a corpus of text to determine the probabilities of transitioning from one word to another.
+
+> The quick brown fox jumps over the lazy dog.
+
+We can create a Markov chain by treating each word as a state and analyzing the probability of transitioning from one word to another. For example, we might find that the probability of transitioning from “the” to “quick” is 0.5, the probability of transitioning from “quick” to “brown” is 1.0, and so on based on large corpus text data study. Once we have computed the transition probabilities, we can generate a new sentence by starting with an initial word and randomly selecting the next word based on the transition probabilities.
+
+
+```python
+import re
+ 
+text = "I love cats. Cats are my favorite animal. I have two cats."
+ 
+# Remove unnecessary characters
+text = re.sub(r"[^a-zA-Z0-9\s]", "", text)
+ 
+# Convert to lowercase
+text = text.lower()
+ 
+text
+```
+
+Next, we generate N-grams from the preprocessed text. N-grams are contiguous sequences of n words, where n is usually 2 or 3. For example, “the cat sat” is a 3-gram.
+
+
+```python
+from nltk import ngrams
+ 
+n = 2
+ 
+# Generate 2-grams
+n_grams = ngrams(text.split(), n)
+ 
+# Convert to list of tuples
+n_grams = list(n_grams)
+ 
+n_grams
+```
+
+After generating N-grams, we build a transition matrix that represents the probabilities of moving from one word to another. We calculate these probabilities by counting the number of times a particular word appears after another word in the N-grams.
+
+
+```python
+# Get unique words
+unique_words = list(set(text.split()))
+
+# Create transition matrix
+transition_matrix = np.zeros((len(unique_words), len(unique_words)))
+
+# Fill transition matrix
+for i, word in enumerate(unique_words):
+	for j, next_word in enumerate(unique_words):
+		# Count the number of times a word appears followed by next_word
+		count = 0
+		for n_gram in n_grams:
+			if n_gram[0] == word and n_gram[1] == next_word:
+				count += 1
+		transition_matrix[i, j] = count
+
+# Normalize transition matrix
+transition_matrix = transition_matrix / \
+	transition_matrix.sum(axis=1, keepdims=True)
+
+
+```
+
+
+```python
+transition_matrix = np.array(transition_matrix)
+
+heatmap = go.Figure(data=go.Heatmap(
+    z=transition_matrix,
+    colorscale='Viridis',
+    x=[f'State {i+1}' for i in range(len(transition_matrix))],
+    y=[f'State {i+1}' for i in range(len(transition_matrix))]
+))
+
+heatmap.update_layout(
+    title='Transition Matrix from state to state',
+    xaxis=dict(title='To State'),
+    yaxis=dict(title='From State'),
+    height=600,
+    width=600,
+)
+
+# Show the plot
+heatmap.show()
+```
+
+Once we have the transition matrix, we can generate new text by starting with an initial word and randomly selecting the next word based on the probabilities in the transition matrix. We repeat this process until we have generated the desired amount of text.
+
+
+```python
+# Set initial word
+current_word = "i"
+
+# Generate text
+generated_text = current_word
+
+for i in range(10):
+	# Get index of current word
+	current_word_index = unique_words.index(current_word)
+
+	# Get probabilities for next word
+	probabilities = transition_matrix[current_word_index]
+
+	# Select next word randomly based on probabilities
+	next_word_index = np.random.choice(len(unique_words), p=probabilities)
+	next_word = unique_words[next_word_index]
+
+	# Add next word to generated text
+	generated_text += " " + next_word
+
+	# Set current word to next word
+	current_word = next_word
+
+# Print generated text
+generated_text
+
+```
+
+
+```python
+import numpy as np
+import ipywidgets as widgets
+from IPython.display import display
+import matplotlib.pyplot as plt
+
+# Assuming you have the necessary variables and functions defined
+
+# Set initial word
+
+# Generate text function
+def generate_text(parameter):
+    global current_word
+    generated_text = current_word
+
+    for _ in range(int(parameter)):
+        current_word_index = unique_words.index(current_word)
+        probabilities = transition_matrix[current_word_index]
+        next_word_index = np.random.choice(len(unique_words), p=probabilities)
+        next_word = unique_words[next_word_index]
+        generated_text += " " + next_word
+        current_word = next_word
+
+    return generated_text
+
+# Function to update and display generated text
+def update_text(parameter):
+    generated_text = generate_text(parameter)
+    print("Generated Text:", generated_text)
+
+# Create a slider
+slider = widgets.FloatSlider(value=0, min=0, max=30, step=1, description='Word count')
+
+# Create an interactive display
+interactive_plot = widgets.interactive(update_text, parameter=slider)
+
+# Display the slider and the initial generated text
+display(interactive_plot)
+```
+
+#### Build larger Markov model
+
+
+```python
+dataset = load_dataset("cfilt/iitb-english-hindi")
+dataset
+```
+
+Create an English text corpus
+
+
+```python
+English = []
+
+for translation_pair in dataset["train"]["translation"]:
+	english = translation_pair['en']
+	English.append(english.strip("\n"))
+
+English = English[::16] # just for performance
+
+```
+
+Preprocessing
+
+
+```python
+def Tokenize(txt):
+	cleaned_txt = []
+	for line in txt:
+		line = line.lower()
+		line = re.sub(r"[,.\"\'!@#$%^&*(){}?/;`~:<>+=-\\]", "", line)
+		tokens = word_tokenize(line)
+		words = [word for word in tokens if word.isalpha()]
+		cleaned_txt += words
+	return cleaned_txt
+
+
+Tokens = Tokenize(English)
+print("number of words = ", len(Tokens))
+
+```
+
+Build the Markov Model
+
+
+```python
+class MarkovModel:
+
+	def __init__(self, n_gram=2):
+		self.n_gram = n_gram
+		self.markov_model = {}
+
+	def build_model(self, text):
+		for i in range(len(text)-self.n_gram-1):
+			curr_state, next_state = "", ""
+			for j in range(self.n_gram):
+				curr_state += text[i+j] + " "
+				next_state += text[i+j+self.n_gram] + " "
+			curr_state = curr_state[:-1]
+			next_state = next_state[:-1]
+			if curr_state not in self.markov_model:
+				self.markov_model[curr_state] = {}
+				self.markov_model[curr_state][next_state] = 1
+			else:
+				if next_state in self.markov_model[curr_state]:
+					self.markov_model[curr_state][next_state] += 1
+				else:
+					self.markov_model[curr_state][next_state] = 1
+
+		# calculating transition probabilities
+		for curr_state, transition in self.markov_model.items():
+			total = sum(transition.values())
+			for state, count in transition.items():
+				self.markov_model[curr_state][state] = count/total
+
+	def get_model(self):
+		return self.markov_model
+
+```
+
+Trained model
+
+
+```python
+markov = MarkovModel()
+markov.build_model(Tokens)
+print("number of states = ", len(markov.get_model().keys()))
+
+```
+
+Generate the new text
+
+
+```python
+def generate_entences(markov, limit=100, start='i am'):
+	n = 0
+	curr_state = start
+	next_state = None
+	story = ""
+	story += curr_state+" "
+	while n < limit:
+		next_state = random.choices(
+			list(markov[curr_state].keys()),
+			list(markov[curr_state].values()))
+
+		curr_state = next_state[0]
+		story += curr_state+" "
+		n += 1
+	return story
+
+
+# Generate 10 senetences
+for i in range(10):
+	print(str(i)+". ", generate_entences(
+		markov.get_model(), start='you are', limit=7))
+
+```
